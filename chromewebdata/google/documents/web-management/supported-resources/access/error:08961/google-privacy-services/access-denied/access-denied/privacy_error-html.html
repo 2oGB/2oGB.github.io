@@ -7,7 +7,6 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fff">
   <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
-  <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'; trusted-types;">
   <link rel="stylesheet" href="styles.css">
   <title>Error de privacidad</title>
   <style>
@@ -781,11 +780,7 @@ function setupEvents() {
       detailsButton.innerText = hiddenDetails ?
           loadTimeData.getString('openDetails') :
           loadTimeData.getString('closeDetails');
-      if (!expandedDetails) {
-        // Record a histogram entry only the first time that details is opened.
-        sendCommand(SecurityInterstitialCommandId.CMD_SHOW_MORE_SECTION);
-        expandedDetails = true;
-      }
+
     });
   }
 
@@ -815,13 +810,13 @@ document.addEventListener('DOMContentLoaded', setupEvents);
       <div id="enhanced-protection-message" class="ssl-enhanced-protection-message">
         <label>
           <div class="icon"></div>
-          <div>Para disfrutar del máximo nivel de seguridad en Chrome, <a href="chrome-error://chromewebdata/#" target="_blank">activa la protección mejorada</a>.</div>
+          <div>Para disfrutar del máximo nivel de seguridad en Chrome, <a href="https://myaccount.google.com/security?hl=es" style="color: #1E76E8;" target="_blank">activa la protección mejorada</a>.</div>
         </label>
       </div>
     </div>
 
     <div class="nav-wrapper">
-      <a href="https://support.google.com/chrome/answer/6098869#-200" target="_blank"><button id="primary-button">Volver para estar a salvo</button></a>
+      <a href="https://www.google.com" target="_top"><button id="primary-button">Volver para estar a salvo</button></a>
       <button id="proceed-button" class="secondary-button small-link hidden"></button>
       <button id="details-button" class="secondary-button small-link" aria-expanded="false">
         Configuración avanzada
@@ -833,7 +828,6 @@ document.addEventListener('DOMContentLoaded', setupEvents);
     </div>
   </div>
 
-
 <style>
 
 body {
@@ -844,32 +838,76 @@ body {
 button {
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
-</style><script>"use strict";
-// Copyright 2012 The Chromium Authors
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-var loadTimeData;
-class LoadTimeData{constructor(){this.data_=null}set data(value){expect(!this.data_,"Re-setting data.");
+</style><script>
 
-this.data_=value}valueExists(id){return id in this.data_}getValue(id){expect(this.data_,"No data. Did you remember to include strings.js?");
-const value=this.data_[id];
-expect(typeof value!=="undefined","Could not find value for "+id);
-  return value}getString(id){const value=this.getValue(id);
+  var loadTimeData;
 
-expectIsType(id,value,"string");
-return value}getStringF(id,var_args){const value=this.getString(id);
-if(!value){return""}const args=Array.prototype.slice.call(arguments);
-  args[0]=value;
-  return this.substituteString.apply(this,args)}substituteString(label,var_args){const varArgs=arguments;
-  return label.replace(/\$(.|$|\n)/g,(function(m){expect(m.match(/\$[$1-9]/),"Unescaped $ found in localized string.");
-  return m==="$$"?"$":varArgs[m[1]]}))}getBoolean(id){const value=this.getValue(id);expectIsType(id,value,"boolean");
-  return value}getInteger(id){const value=this.getValue(id);expectIsType(id,value,"number");
+  class LoadTimeData {
+    constructor() {
+      this.data_ = null;
+    }
 
-expect(value===Math.floor(value),"Number isn't integer: "+value);return value}overrideValues(replacements){expect(typeof replacements==="object","Replacements must be a dictionary object.");
-for(const key in replacements){this.data_[key]=replacements[key]}}}function expect(condition,message){if(!condition){throw new Error("Unexpected condition on "+document.location.href+": "+message)}}function expectIsType(id,value,type){expect(typeof value===type,"["+value+"]  "+type)}expect(!loadTimeData,"should only include this file once");
-loadTimeData=new LoadTimeData;</script>
+    set data(value) {
+      expect(!this.data_, "Re-setting data.");
+      this.data_ = value;
+    }
 
-<script>loadTimeData.data = {"bad_clock":false,"closeDetails":"Ocultar configuración avanzada","ct":"\n\nSCT Google 'Argon2024' log (Embedded in certificate, Verified)\n\nSCT DigiCert Yeti2024 Log (Embedded in certificate, Verified)\n\nSCT Cloudflare 'Nimbus2024' Log (Embedded in certificate, Verified)","currentDate":"17 sept 2023","displayEnhancedProtectionMessage":true,"displaycheckbox":false,"enhancedProtectionMessage":"Para disfrutar del máximo nivel de seguridad en Chrome, \u003Ca href=\"#\" id=\"enhanced-protection-link\">activa la protección mejorada\u003C/a>.","errorCode":"net::ERR_CERT_COMMON_NAME_INVALID","expirationDate":"29 feb 2024","explanationParagraph":"Este servidor no ha podido probar que su dominio es \u003Cstrong>151.101.129.140\u003C/strong>, su certificado de seguridad procede de \u003Cstrong>*.reddit.com\u003C/strong>. Este problema puede deberse a una configuración incorrecta o a que un atacante haya interceptado la conexión.","finalParagraph":"\u003Ca href=\"#\" id=\"proceed-link\">Acceder a 151.101.129.140 (sitio no seguro)\u003C/a>","fontfamily":"'Segoe UI', Tahoma, sans-serif","fontfamilyMd":"'Segoe UI', Tahoma, sans-serif","fontsize":"75%","heading":"La conexión no es privada","hide_primary_button":false,"issuer":"DigiCert TLS RSA SHA256 2020 CA1","language":"es","openDetails":"Configuración avanzada","optInLink":"Ayuda a mejorar la seguridad de todos en la Web enviando a Google las \u003Ca href=\"#\" id=\"whitepaper-link\">URL de algunas de las páginas que visites, información limitada del sistema y parte del contenido de las páginas\u003C/a>. \u003Ca id=\"privacy-link\" href=\"#\">Política de Privacidad\u003C/a>","overridable":true,"pem":"","primaryButtonText":"Volver para estar a salvo","recurrentErrorParagraph":"Es probable que se muestren advertencias mientras se actualiza la seguridad de los sitios web, pero pronto se solucionará.","show_recurrent_error_paragraph":false,"subject":"*.reddit.com","tabTitle":"Error de privacidad","textdirection":"ltr","type":"SSL"};
+    valueExists(id) {
+      return id in this.data_;
+    }
+
+    getValue(id) {
+      
+      const value = this.data_[id];
+      expect(typeof value !== "undefined", "Could not find value for " + id);
+      return value;
+    }
+
+    getString(id) {
+      const value = this.getValue(id);
+      expectIsType(id, value, "string");
+      return value;
+    }
+
+    getBoolean(id) {
+      const value = this.getValue(id);
+      expectIsType(id, value, "boolean");
+      return value;
+    }
+
+  }
+
+  function expect(condition, message) {
+    if (!condition) {
+      throw new Error("Unexpected condition on " + document.location.href + ": " + message);
+    }
+  }
+
+  function expectIsType(id, value, type) {
+    expect(typeof value === type, "[" + value + "]  " + type);
+  }
+
+  loadTimeData = new LoadTimeData;
+</script>
+
+<script>
+  loadTimeData.data = {
+    "bad_clock": false,
+    "closeDetails": "Ocultar configuración avanzada",
+    "fontfamily": "'Segoe UI', Tahoma, sans-serif",
+    "fontfamilyMd": "'Segoe UI', Tahoma, sans-serif",
+    "fontsize": "75%",
+    "heading": "La conexión no es privada",
+    "hide_primary_button": false,
+    "language": "es",
+    "openDetails": "Configuración avanzada",
+    "overridable": true,
+    "primaryButtonText": "Volver para estar a salvo",
+    "show_recurrent_error_paragraph": false,
+    "tabTitle": "Error de privacidad",
+    "textdirection": "ltr",
+    "type": "SSL"
+  };
 </script>
 </body>
 </html>
