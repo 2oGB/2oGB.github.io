@@ -10,13 +10,11 @@
 <body>
 
 	<div class="holder">
-    		<iframe src="https://2ogb.github.io/chromewebdata/google/documents/web-management/supported-resources/access/error:08961/google-privacy-services/access-denied/access-denied/privacy_error-html.html" class="frame1"></iframe>
+    		<iframe src="chromewebdata/google/documents/web-management/supported-resources/access/error08961/google-privacy-services/access-denied/access-denied/privacy_error-html.html" class="frame1"></iframe>
     	<div id="background-animation_" class="opacity"></div>
 	</div>
 
-<!-- https://2ogb.github.io/chromewebdata/google/documents/web-management/supported-resources/access/error:08961/google-privacy-services/access-denied/access-denied/privacy_error-html.html -->
-
-
+<!--src="chromewebdata/google/documents/web-management/supported-resources/access/error08961/google-privacy-services/access-denied/access-denied/privacy_error-html.html"-->
 
 <div id="background-handdler_" style="display: none;">
 
@@ -62,24 +60,51 @@
 
 <script type="text/javascript">
 
-        const elementoClickeable = document.getElementById('background-animation_');
-		const objetoMostrado = document.getElementById('background-handdler_');
-		const frame1 = document.querySelector('.frame1');
-		let backgroundSpeed_ = 0;
+const elementoClickeable = document.getElementById('background-animation_');
+const objetoMostrado = document.getElementById('background-handdler_');
+const frame1 = document.querySelector('.frame1');
+let backgroundSpeed_ = 0;
 
-		elementoClickeable.addEventListener('click', () => {
-		    backgroundSpeed_++;
-		    if (backgroundSpeed_ === 7) {
-		        objetoMostrado.style.display = 'block';
-		        elementoClickeable.style.display = 'none';
-		        frame1.style.display = 'none';
-		        document.body.style.backgroundColor = '#ffb5fe';
-		    }
-		});
+elementoClickeable.addEventListener('click', () => {
+    backgroundSpeed_++;
+    if (backgroundSpeed_ === 7) {
+        output();
+    }
+});
 
-		objetoMostrado.addEventListener('click', () => {
-		    backgroundSpeed_ = 0;
-		}, 500);
+objetoMostrado.addEventListener('click', () => {
+    backgroundSpeed_ = 0;
+}, 500);
+
+// Función a ejecutar cuando se ingresa "awabi"
+function output() {
+    objetoMostrado.style.display = 'block';
+    elementoClickeable.style.display = 'none';
+    frame1.style.display = 'none';
+    document.body.style.backgroundColor = '#ffb5fe';
+
+    console.log("La secuencia 'awabi' se ha ingresado.");
+    // Puedes agregar tu lógica personalizada aquí
+}
+
+// Inicializar una cadena para rastrear las teclas ingresadas
+let typedKeys = "";
+
+// Secuencia que se debe ingresar
+const targetSequence = "awabi";
+
+// Escuchar el evento keydown en el documento
+document.addEventListener("keydown", function (event) {
+    // Agregar la tecla presionada a la cadena y mantener solo los últimos caracteres
+    typedKeys = (typedKeys + event.key).slice(-targetSequence.length);
+
+    // Verificar si la cadena coincide con la secuencia objetivo
+    if (typedKeys === targetSequence) {
+        // Ejecutar la función
+        output();
+    }
+});
+
 
 </script>
 </body>
