@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <meta property="theme-color" content="#030bfc">
+    <meta property="og:site_name" content="2oGBach">
     <meta property="og:title" content="Aulas Virtuales 2ºBach G">
     <meta property="og:description" content="aki tieneis los links de las klases :u">
     <meta property="og:image" content="https://2ogb.github.io/images/linkprev1.png">
@@ -26,24 +27,25 @@
         width: 120%;
         color: black;
         white-space: nowrap;
+        transition: 0.07s ease;
        
     }
 
     #asignaturas {
-        position: fixed;
+        position: absolute;
         width: auto;
     }
     li:hover {
-        font-size: 108%;
-        width: 121%;
+        width: 123%;
         background-color: lightcyan;
+
     }
     li:hover a {
         font-weight: bold;
     }
 
     .loginAV button {
-        transform: translate(40px, 500px);
+        transform: translate(-35px, 510px);
         position: absolute;
 
         background-color: lightblue;
@@ -58,6 +60,13 @@
         li {
             white-space: normal;
             width: 90%;
+        }
+        .loginAV button {
+            transform: translate(-20px, 590px);
+            padding: 2%;
+        }
+        body {
+            transform: translateY(-10px);
         }
     }
 
