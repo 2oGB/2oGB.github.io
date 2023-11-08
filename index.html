@@ -6,24 +6,45 @@
     <title>Aulas Virtuales 2Bach G</title>
 <style type="text/css">
     body {
+        margin-top: 2.5%;
         margin-left: 5%;
         font-size: 105%;
+        color: black;
     }
     li {
         display: inline-block;
         margin-top: 10px;
         border-width: 20%;
         background-color: lightgray;
-        width: 40%;
-
-        transition: 0.1s ease;
+        width: 50%;
+        color: black;
+        white-space: nowrap;
+       
+    }
+    #asignaturas {
+        position: fixed;
+        width: 100%;
     }
     li:hover {
         font-size: 108%;
-        width: 41%;
-
-        transition: 0.2s ease;
+        width: 51%;
+        background-color: lightcyan;
     }
+    li:hover a {
+        font-weight: bold;
+    }
+
+    .loginAV {
+        transform: translate(1000px, -90px);
+    }
+
+    @media (max-width: 400) {
+
+    }
+
+
+
+a, a:visited, a:hover, a:active {color: blue;}
 </style>
 
 </head>
@@ -32,41 +53,41 @@
 <p><br></p>
 <p style="text-align:left;">-- ASIGNATURAS --</p>
 <p></p>
-<ul>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1047">Lengua</a><br>
-        Juan Gálvez | juan.galvezgarcia@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/enrol/index.php?id=1080">Inglés</a><br>
-        Laura Sánchez | laura.sanchezceballos@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1374">Historia de España</a><br>
-        Maite Gacho | mteresagacho@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1612">Historia de la Filosofía</a><br>
-        Israel Nájera | inajera@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1510">Fundamentos del arte (FUA)</a><br>
-        Paco Alcaráz | xxxx@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1666">Diseño:Fina</a> | <a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=190">Carlos</a><br>
-        Fina Lloret | xxxx@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1639">Dibujo Artístico</a>
-    <br>
-        Pilar (Tutora) | pilar.hierrobocanegra@educa.madrid.org
-    </li>
-    <br>
-    <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=522">Técnicas de expresión grafico-plásticas (TEG)</a><br>
-        Carlos Lara | xxxx@educa.madrid.org
-    </li>
 
-</ul>
+<div style="position: fixed;">
+    <button class="loginAV"><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/login/index.php" onclick="window.open(this.href, '_blank', 'width=450,height=653'); return false;">Login Aula Virtual</a></button>
+</div>
+
+<div id="asignaturas">
+    <ul>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1047">Lengua</a><br>
+            Juan Gálvez | juan.galvezgarcia@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/enrol/index.php?id=1080">Inglés</a><br>
+            Laura Sánchez | laura.sanchezceballos@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1374">Historia de España</a><br>
+            Maite Gacho | mteresagacho@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1612">Historia de la Filosofía</a><br>
+            Israel Nájera | inajera@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1510">Fundamentos del arte (FUA)</a><br>
+            Paco Alcaráz | xxxx@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1666">Diseño:Fina</a> | <a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=190">Carlos</a><br>
+            Fina Lloret | xxxx@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=1639">Dibujo Artístico</a><br>
+            Pilar (Tutora) | pilar.hierrobocanegra@educa.madrid.org
+        </li>
+        <li><a href="https://aulavirtual32.educa.madrid.org/ies.lopedevega.madrid/course/view.php?id=522">Técnicas de expresión grafico-plásticas (TEG)</a><br>
+            Carlos Lara | xxxx@educa.madrid.org
+        </li>
+    </ul>
+</div>
+<br>
+
 
 </body>
 </html>
